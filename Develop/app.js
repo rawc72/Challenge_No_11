@@ -26,3 +26,60 @@ app.get("/api/notes", (req, res) => {
         res.send(data);
     });
 });
+
+// Handle delete function for the path parameter
+app.delete("/api/notes/:id", (req, res) => {
+    var deleteId = req.params.id;
+
+    fs.readFile("./db/db.json", "utf8", function(err, data) {
+        var dbNoteList = JSON.parse(data);
+        const newDBNoteList = dbNoteList.filter(
+            (note) => Number(note.id) !== Number(deleteId)
+        );
+
+        fs.writeFile("./db/db.json", JSON.stringify(newDBNoteList), function(err) {
+            if (err) {
+                res.status(500);
+                res.send("{'status':'failed'}");
+            }
+            res.status(200);
+            res.send("{'status':'ok'}");
+        });
+    });
+});
+
+// API to insert new notes
+app.post("/api/notes", (req, res) => {
+    var request = req.body;
+
+    fs.readFile("./db/db.json", "utf8", function(err, data) {
+        var dbNoteList = JSON.parse(data);
+        if (dbNoteList.length === 0) {
+            var newNote = {};
+            newNote.id = 1;
+            newNote.title = request.title;
+            newNote.text = request.text;
+            dbNoteList.push(newNote);
+        } else {
+            let lastId = dbNoteList.slice(-1)[0].id;
+            var newNote = {};
+            newNote.id = lastId + 1;
+            newNote.title = request.title;
+            newNote.text = request.text;
+            dbNoteList.push(newNote);
+        }
+        fs.writeFile("./db/db.json", JSON.stringify(dbNoteList), function(err) {
+            if (err) {
+                res.status(500);
+                res.send("{'status':'failed'}");
+            }
+            res.status(200);
+            res.send("{'status':'ok'}");
+        });
+    });
+});
+
+// Executable function
+app.listen(port, () => {
+    console.log(`HTTP Server running at http://localhost:${port}`);
+});
