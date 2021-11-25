@@ -12,10 +12,13 @@ When I enter a new note title and the note’s text, then a Save icon appears in
 When I click on an existing note in the list in the left-hand column, then that note appears in the right-hand column. When I click on the Write icon in the navigation at the top of the page, then I am presented with empty fields to enter a new note title and the note’s text in the right-hand column.
 
 ## Mock-Up
-Pending images.
+https://github.com/rawc72/Challenge_No_11/issues/1#issue-1063160688
 
 ## Link to deployed application in Heroku URL
-Pending link.
+/Users/rawc/UTOR/notes-soft
+
+## Link to Heroku Repository URL
+https://dashboard.heroku.com/apps/notes-soft
 
 ## Link to GitHub URL
-Pending link.
+https://github.com/rawc72/Challenge_No_11.git
