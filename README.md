@@ -20,5 +20,11 @@ https://github.com/rawc72/Challenge_No_11/issues/1#issue-1063160688
 ## Link to Heroku Repository URL
 https://dashboard.heroku.com/apps/notes-soft
 
+## Image of Heroku Deployment
+https://github.com/rawc72/Challenge_No_11/issues/2#issue-1063647459
+
+** Important **
+When opening the Link to the Heroku Repository, you will see in the top right corner a button to Open App. Press this button and the application will be deployed.
+
 ## Link to GitHub URL
 https://github.com/rawc72/Challenge_No_11.git
